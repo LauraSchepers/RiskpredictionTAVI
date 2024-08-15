@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TAVI Mortality Calculator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="logos">
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" class="logo">
+            <img src="{{ url_for('static', filename='logo1.png') }}" alt="Logo1" class="logo1">
+        </div>
+        <h1> TAVI Mortality Calculator</h1>
+        <div class="demographic">
+            <h2>Demographics</h2>
+            <label for="age">Age (years):</label>
+            <input type="number" id="age" placeholder="Enter age in years">
+            <br>
+            <label for="lengthCM">Length (cm):</label>
+            <input type="number" id="lengthCM" placeholder="Enter length in cm">
+            <br>
+            <label for="weight">Weight (kg):</label>
+            <input type="number" id="weight" placeholder="Enter weight in kg">
+
+        </div>
+        <div class="risk-factors">
+            <h2>Risk Factors</h2>
+            <label for="BL_AF">Permanent Atrial Fibrillation:</label>
+            <input type="checkbox" id="BL_AF">
+            <br>
+            <label for="HistoryAorticValveIntervention">Prior aortic valve intervention:</label>
+            <input type="checkbox" id="HistoryAorticValveIntervention">
+            <br>
+            <label for="NYHA">NYHA class:</label>
+            <select id="NYHA">
+                <option value="1">I</option>
+                <option value="2">II</option>
+                <option value="3">III</option>
+                <option value="4">IV</option>
+            </select>
+        </div>
+        <div class="procedural-variables">
+            <h2>Procedural Variables</h2>
+            <label for="eGFR">eGFR (ml/min) :</label>
+            <input type="number" id="eGFR" placeholder="Enter eGFR">
+            <br>
+            <label for="LVEF">Left Ventricle Ejection Fraction (%) :</label>
+            <input type="number" id="LVEF" placeholder="Enter LVEF">
+            <br>
+            <label for="AorticValveArea">Aortic Valve Area (cm2) :</label>
+            <input type="number" id="AorticValveArea" placeholder="Enter AVA">
+            <br>
+        </div>
+        <button onclick="calculateMortality()">Calculate</button>
+        <div id="result">Chance of Mortality: <span id="mortality-chance"></span></div>
+    </div>
+
+    <script src="{{ url_for('static', filename='index.js') }}"></script>
+</body>
+</html>
